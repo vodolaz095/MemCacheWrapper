@@ -3,12 +3,16 @@ MemCacheWrapper
 Singleton styled wrapper for MemCached with ability to use closures
 
 
-#Requires - php>5.3, memcache instanse, php_memcached extension to be installed!
+#Requires
+=======
+php>5.3, memcache instanse, php_memcached extension to be installed!
 
 
 ## Features
 1) Singleton assembly of class - single object from all scopes of view
+
 2) Simplest api
+
 3) "It works from box" configuration
 
 ### Functions
