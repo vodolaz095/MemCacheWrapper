@@ -16,7 +16,7 @@ class MEMCACHE
             }
 
     /**
-     * Set the development of production mode.
+     * Set the development or production mode.
      * In development mode every cache output generates html code with data about cache storage
      * @static
      * @param boolean $true_or_false, default false;
@@ -68,7 +68,8 @@ class MEMCACHE
             }
 
     /**
-     * Sets the key in cache
+     * If key doesn't exists, sets the key into cache
+     * If key exists, returns this key value
      * @static
      * @param string $string_hash_key- name of a cache keuy
      * @param $callback - anonimous function or scalar value to store in cache
