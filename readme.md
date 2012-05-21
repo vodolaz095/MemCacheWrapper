@@ -27,6 +27,7 @@ For example
 
 ####MEMCACHE::set($string_hash_key,$callback,$expiration_time_in_seconds);
 Set the key $string_hash_key with value $callback to be stored for $expiration_time_in_seconds.
+Affected by MEMCACHE::setPrefix($prefix) behavior!
 
  For example, store a scalar value
 ```php
@@ -39,10 +40,10 @@ MEMCACHE set('counter',function(){ return Realy_Slow_Function($arg1,$arg2);},60)
 ```
 
 ####MEMCACHE::get($string_hash_key);
-Get the value from cache. If value doen't exists return false;
+Get the value from cache. If value doen't exists return false. Affected by MEMCACHE::setPrefix($prefix) behavior!
 
 ####MEMCACHE::delete($string_hash_key);
-Delete value in cache.
+Delete value in cache. Affected by MEMCACHE::setPrefix($prefix) behavior!
 
 ####MEMCACHE::flush();
 Invalidates all cache.
