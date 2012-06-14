@@ -82,7 +82,7 @@ class MEMCACHE
      * //with value returned by Realy_Slow_Function($arg1,$arg2) with expiration time 60 seconds
      *
      */
-        public static function set($string_hash_key,$closure,$duration=60)
+        public static function set($string_hash_key,$closure,$duration=60,$development=false)
             {
                 if($duration<0)
                     {
@@ -93,7 +93,7 @@ class MEMCACHE
                 $a=$c->m->get($c->prefix.$string_hash_key);
                 if($a)
                     {
-                        if($c->dev) $a='<div style="border-style:solid;border-width:1px;border-color: #009900;" title="from cache with key *'.$string_hash_key.'* ">'.$a.'</div>';
+                        if($c->dev or $development) $a='<div style="border-style:solid;border-width:1px;border-color: #009900;" title="from cache with key *'.$string_hash_key.'* ">'.$a.'</div>';
                         return $a;
                     }
                 else
@@ -105,7 +105,7 @@ class MEMCACHE
                             $a=$closure();
 
                         $c->m->set($c->prefix.$string_hash_key,$a,$duration);
-                        if($c->dev) $a='<div style="border-style:solid;border-width:1px;border-color: #f0bb0e;" title="created and stored in cache with key *'.$string_hash_key.'* ">'.$a.'</div>';
+                        if($c->dev or $development) $a='<div style="border-style:solid;border-width:1px;border-color: #f0bb0e;" title="created and stored in cache with key *'.$string_hash_key.'* ">'.$a.'</div>';
                         return $a;
                     }
             }
