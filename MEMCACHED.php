@@ -8,6 +8,7 @@ class MEMCACHE
 
         public static function init()
             {
+                /** @noinspection PhpUndefinedClassInspection */
                 if ( is_null(self::$instance) )
                     {
                         self::$instance = new MEMCACHE();
@@ -74,6 +75,7 @@ class MEMCACHE
      * @param string $string_hash_key- name of a cache keuy
      * @param $callback - anonimous function or scalar value to store in cache
      * @param int $duration
+     * @param boolean $development - if set to true, shows development information
      * @return string
      * @example
      *
